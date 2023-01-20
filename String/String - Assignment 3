@@ -13,7 +13,7 @@ class Tester {
          return reverseWord.trim();  
 	}
 	
-	public static void main(String args[]){
+	public static void main(String args[]){ 
 	    String str = "all cows eat grass";
 	    System.out.println(reverseEachWord(str));
 	}

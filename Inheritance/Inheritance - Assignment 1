@@ -1,0 +1,163 @@
+Inheritance - Assignment 1
+
+
+class Employee {
+      
+    public int employeeid;
+    public String employeeName;
+    public double salary;
+    
+    public Employee(int employeeid,String employeeName){
+        this.employeeid = employeeid;
+        this.employeeName = employeeName;
+    }
+    
+    public int getEmployeeId(){
+        return employeeid;
+    }
+    
+    public void setEmployeeId(){
+         this.employeeid = employeeid;
+    }
+    
+    public String getEmployeeName(){
+        return employeeName;
+    }
+    
+    public void setEmployeeName(String employeeName){
+        this.employeeName = employeeName;
+    }
+    
+    public double getSalary(){
+       return salary;
+    }
+    
+    public void setSalary(){
+       this.salary = salary;
+    }
+    
+    public String toString(){
+        return "Employee\nemployeeId: "+this.getEmployeeId()+"\nemployeeName: "+this.getEmployeeName()+"\nsalary: "+this.getSalary();
+    }
+    
+}
+
+
+class PermanentEmployee extends Employee {
+      
+    public double basicPay;
+    public double hra;
+    public float experience;
+    
+    PermanentEmployee(int empid,String name, double basicPay, double hra,  float experience){
+        super(empid,name);
+        this.basicPay =basicPay;
+        this.hra = hra;
+        this.experience = experience;
+        
+    }
+    
+    public void calculateMonthlySalary(){
+       double component;
+        
+        if(experience<3){
+          component = 0;
+        }else if(experience>=3 && experience < 5){
+           component = 0.05*basicPay;
+        }else if(experience>=5 && experience < 10){
+           component = 0.07*basicPay;
+        }else{
+           component = 0.12*basicPay;
+        }
+        
+         
+        salary = basicPay + hra +  component;
+        salary = Math.round(salary);
+    }
+    
+    public double getBasicPay(){
+        return basicPay;
+    }
+    
+    public void  setBasicPay(double basicPay){
+        this.basicPay = basicPay;
+    }
+    
+    public double getHra(){
+        return hra;
+    }
+    
+    public void  setHra(double hra){
+        this.hra = hra;
+    }
+    
+    public double getExperience(){
+        return experience;
+    }
+    
+    public void setExperience(float experience){
+        this.experience  = experience;
+    }
+    
+    
+    
+    public String toString(){
+        return "PermanentEmployee\nemployeeId: "+this.getEmployeeId()+"\nemployeeName: "+this.getEmployeeName()+"\nsalary: "+this.getSalary()+"\nbasicPay: "+this.getBasicPay()+"\nhra: "+this.getHra()+"\nexperience: "+this.getExperience();
+    }
+    
+}
+
+class ContractEmployee extends Employee {
+     
+    public double wage;
+    public float hoursWorked;
+    
+    public ContractEmployee(int empid,String name,double wage, float hoursWorked ){
+       super(empid,name);
+       this.wage = wage;
+       this.hoursWorked  = hoursWorked;
+    }
+    
+    public void calculateSalary(){
+       
+       salary = hoursWorked * wage;
+    }
+    
+    public double getWage(){
+         return wage;
+    }
+    
+    public void setWage(double wage){
+         this.wage=wage;
+    }
+    
+    public double getHoursWorked(){
+         return hoursWorked;
+    }
+    
+    public void setHoursWorked(float hoursWorked){
+         this.hoursWorked = hoursWorked;
+    }
+    
+    public String toString(){
+        return "ContractEmployee\nemployeeId: "+this.getEmployeeId()+"\nemployeeName: "+this.getEmployeeName()+"\nsalary: "+this.getSalary()+"\nwage: "+this.getWage()+"\nhoursWorked: "+this.getHoursWorked();
+    }
+
+}
+
+class Tester {
+      
+    public static void main(String[] args) {
+      
+        PermanentEmployee permanentEmployee = new PermanentEmployee(711211, "Rafael", 1855, 115, 3.5f);
+	    permanentEmployee.calculateMonthlySalary();
+	    System.out.println("Hi "+permanentEmployee.getEmployeeName()+", your salary is $"+permanentEmployee.getSalary());
+	            
+	    ContractEmployee contractEmployee = new ContractEmployee(102, "Jennifer", 16, 90);
+	    contractEmployee.calculateSalary();
+	    System.out.println("Hi "+contractEmployee.getEmployeeName()+", your salary is $"+contractEmployee.getSalary());
+	        
+	    //Create more objects for testing your code
+    }
+      
+}
