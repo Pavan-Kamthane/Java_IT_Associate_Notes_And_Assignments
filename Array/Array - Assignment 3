@@ -1,0 +1,38 @@
+
+Array - Assignment 3
+
+
+class Tester {
+    
+   public static int[] findLeapYears(int year){
+       int n =15;
+       int[] ans  = new int[n];
+       int count = 0;
+       int i = 0;
+        while (count != n)
+        {
+ 
+            year = year + 1;
+            // Incrementing the year count by 1
+ 
+            if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+                count++;
+ 
+                // Print the leap year
+                // System.out.println(year);
+                ans[i] = year;
+                i++;
+            }
+        }
+        return ans;
+   }
+    
+   public static void main(String[] args) {
+       int year = 2000;
+	   int[] leapYears;
+	   leapYears=findLeapYears(year);
+	   for ( int index = 0; index<leapYears.length; index++ ) {
+	       System.out.println(leapYears[index]);
+	   }
+    }
+}
