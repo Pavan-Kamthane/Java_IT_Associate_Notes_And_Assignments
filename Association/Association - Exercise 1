@@ -1,9 +1,9 @@
-Association - Exercise 1
 
 
 class CabServiceProvider{
     private String cabServiceName;
     private int totalCabs;
+    public double rewardPrice;
     
     public CabServiceProvider(String cabServiceName,int totalCabs){
          this.cabServiceName = cabServiceName;
@@ -11,28 +11,24 @@ class CabServiceProvider{
     }
     
     public double calculateRewardPrice(Driver driver){
-     double ans =0.00;
-     if(getCabServiceName() == "Aber"){
-       if(driver.getAverageRating() < 4){
-          ans= 0;
-       }else if(driver.getAverageRating() >= 4 && driver.getAverageRating() < 4.5){
-          ans =  3*driver.getAverageRating();
-       }else if(driver.getAverageRating() >= 4.5 && driver.getAverageRating() <= 5){
-          ans= 8*driver.getAverageRating();
+       if(cabServiceName == "Halo"){
+          if(driver.getAverageRating() >= 4.5 && driver.getAverageRating()<=5){
+             rewardPrice = 10*driver.getAverageRating();
+          }else if(driver.getAverageRating() >= 4 && driver.getAverageRating()<=4.5){
+             rewardPrice = 5*driver.getAverageRating();   
+          }else{
+              rewardPrice=0;
+          }
+       }else if(cabServiceName == "Aber"){
+          if(driver.getAverageRating() >= 4.5 && driver.getAverageRating()<=5){
+             rewardPrice = 8*driver.getAverageRating();
+          }else if(driver.getAverageRating() >= 4 && driver.getAverageRating()<=4.5){
+             rewardPrice = 3*driver.getAverageRating();   
+          }else{
+              rewardPrice=0;
+          }
        }
-     }else if(getCabServiceName() == "Halo"){
-        if(driver.getAverageRating() < 4){
-          ans= 0;
-       }else if(driver.getAverageRating() >= 4 && driver.getAverageRating() < 4.5){
-          ans= 5*driver.getAverageRating();
-       }else if(driver.getAverageRating() >= 4.5 && driver.getAverageRating() <= 5){
-          ans= 10*driver.getAverageRating();
-       }
-      }
-      
-      ans = Math.round((ans*100)/100);
-      
-      return ans;
+      return rewardPrice;
     }
     
     public String getCabServiceName(){
