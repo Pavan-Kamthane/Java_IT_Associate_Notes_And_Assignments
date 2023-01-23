@@ -1,5 +1,3 @@
-Methods - Assignment 3
-
 class Calculator {
      public int num;
      public int sumOfDigits()
