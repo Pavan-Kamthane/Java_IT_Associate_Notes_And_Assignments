@@ -1,7 +1,0 @@
-A linked list can be created as shown below.
-
-List<String> myList = new LinkedList<String>();
-//or
-LinkedList<String> myList = new LinkedList<String>();
-After a linked list is created, you can use methods for operations on the Linked list.
-
