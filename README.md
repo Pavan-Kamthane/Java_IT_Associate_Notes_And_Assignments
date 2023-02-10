@@ -1,4 +1,4 @@
-# Spring-Board-answers
+# Java_IT_Associate_Notes_And_Assignments
 
 Welcome to the Spring-Board-answers repository! This repository is your go-to resource for answers to the programming in java course exercises and assignments.
 
